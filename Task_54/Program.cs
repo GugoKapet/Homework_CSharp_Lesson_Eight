@@ -13,9 +13,12 @@ int[,] matrix = new int[m, n];
 FillMatrix(matrix);
 Print2DArray(matrix);
 Console.WriteLine();
-int[] result = Return1DArray(matrix);
-ArrangeValuesInColumn(result);
-PrintArray(result);
+int[,] arrayInArrangedOrder = ArrangeValuesInEachColumn(matrix);
+Print2DArray(arrayInArrangedOrder);
+
+// int[] result = Return1DArray(matrix);
+// ArrangeValuesInColumn(result);
+// PrintArray(result);
 
 void FillMatrix(int[,] m)
 {
@@ -41,6 +44,38 @@ void Print2DArray(int[,] matr)
     }
 }
 
+int[,] ArrangeValuesInEachColumn(int[,] ma)
+{
+    for (int i = 0; i < ma.GetLength(0); i++)
+    {
+        for (int j = 0; j < ma.GetLength(1); j++)
+        {
+            for (int k = 0; k < ma.GetLength(1); k++)
+            {
+                if (ma[i, j] > ma[i, k])
+                {
+                    int temp = ma[i, j];
+                    ma[i, j] = ma[i, k];
+                    ma[i, k] = temp;
+                }
+            }
+        }
+    }
+    return ma;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 // int[] ArrangeValuesInColumn(int[,] ma)
 // {
 //     int[] newColumn = new int[n];
@@ -56,30 +91,30 @@ void Print2DArray(int[,] matr)
 //     return newColumn;
 // }
 
-int[] Return1DArray(int[,] mat)
-{
-    int[] newArray = new int[n];
-    for (int i = 0; i < mat.GetLength(1); i++)
-    {
-        newArray[i] = mat[0, i];
-    }
-    return newArray;
-}
+// int[] Return1DArray(int[,] mat)
+// {
+//     int[] newArray = new int[n];
+//     for (int i = 0; i < mat.GetLength(1); i++)
+//     {
+//         newArray[i] = mat[0, i];
+//     }
+//     return newArray;
+// }
 
-void ArrangeValuesInColumn(int[] arr)
-{
-    foreach (var i in arr)
-    {
-        Array.Sort(arr);
-        Array.Reverse(arr);
-    }
-}
+// void ArrangeValuesInColumn(int[] arr)
+// {
+//     foreach (var i in arr)
+//     {
+//         Array.Sort(arr);
+//         Array.Reverse(arr);
+//     }
+// }
 
-void PrintArray(int[] array)
-{
-    for (int i = 0; i < array.Length; i++)
-    {
-        Console.Write($"{array[i]} ");
-    }
-}
+// void PrintArray(int[] array)
+// {
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         Console.Write($"{array[i]} ");
+//     }
+// }
 
