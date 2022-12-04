@@ -6,6 +6,7 @@ int[,] spiralArray = new int[n,n];
 GetArrayInSpiralOrder(spiralArray);
 Print2DArray(spiralArray);
 
+
 void GetArrayInSpiralOrder(int[,] a)
 // {
 //     int startValue = 1;
@@ -60,6 +61,7 @@ void GetArrayInSpiralOrder(int[,] a)
         a[2,i] = number++;
     }
 }
+
 
 void Print2DArray(int[,] matr)
 {
