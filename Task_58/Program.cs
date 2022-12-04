@@ -1,6 +1,5 @@
 ﻿// Задача 58: Задайте две матрицы. Напишите метод, 
 // который будет находить произведение двух матриц.
-
 bool IsParsedM = int.TryParse(Console.ReadLine(), out int m);
 bool IsParsedN = int.TryParse(Console.ReadLine(), out int n);
 if (!IsParsedM || !IsParsedN)
@@ -19,7 +18,6 @@ Print2DArray(anotherMatrix);
 Console.WriteLine();
 int[,] multipleMatrix = MultiplyMatrixes(matrix, anotherMatrix);
 Print2DArray(multipleMatrix);
-
 
 void FillMatrix(int[,] m)
 {
