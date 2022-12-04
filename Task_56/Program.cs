@@ -16,9 +16,8 @@ Console.WriteLine();
 int[] arrayOfSum = GetSumOfColumn(matrix);
 PrintArray(arrayOfSum);
 Console.WriteLine();
-int valueOfMinColumn = FindMinColumnSum(arrayOfSum);
-Console.WriteLine(valueOfMinColumn);
-
+int[] valueOfMinColumn = FindMinColumnSum(arrayOfSum);
+Console.Write($"Иднекс строки с минимальной суммой значений: {valueOfMinColumn[0]}, Сумма элементов данной строки: {valueOfMinColumn[1]} ");
 
 
 void FillMatrix(int[,] m)
@@ -60,17 +59,20 @@ int[] GetSumOfColumn(int[,] array)
     return arrayOfSum;
 }
 
-int FindMinColumnSum(int[] a)
+int[] FindMinColumnSum(int[] a)
 {
     int minValueOfColumn = a[0];
+    int[] ArrayWithSumAndIndex = new int[2];
     for (int i = 1; i < a.Length; i++)
     {
         if (a[i] < minValueOfColumn)
         {
             minValueOfColumn = a[i];
+            ArrayWithSumAndIndex[0] = i;
+            ArrayWithSumAndIndex[1] = minValueOfColumn;
         }
     }
-    return minValueOfColumn;
+    return ArrayWithSumAndIndex;
 }
 
 void PrintArray(int[] array)
